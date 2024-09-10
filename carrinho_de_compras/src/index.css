@@ -8,3 +8,11 @@
   font-family: "Montserrat", sans-serif;
 }
 
+body{
+  background-color: #ebebeb ;
+}
+
+.container{
+  margin: 0 auto;
+  max-width: 1100px;
+}
