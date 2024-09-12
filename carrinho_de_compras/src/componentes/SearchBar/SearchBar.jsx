@@ -21,7 +21,6 @@ function SearchBar() {
         setProducts(products)
         setLoading(false)
         setSearchValue("")
-
     }
 
     return (
