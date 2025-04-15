@@ -10,12 +10,12 @@ function Produtos() {
     
     useEffect(() => {
         fetchProducts("computador").then((response) => {
-            console.log("Produtos carregados:", response);  // Verifique os dados aqui
+            console.log("Produtos carregados:", response);  
             setProducts(response);
             setLoading(false);
         });
     }, [setProducts, setLoading]);
-     // Certifique-se de que essas funções estão no array de dependências
+     
 
     return (
         loading ? <Loading /> : 
