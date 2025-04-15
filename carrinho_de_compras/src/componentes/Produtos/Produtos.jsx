@@ -1,35 +1,30 @@
 import React, { useEffect, useContext } from "react";
-
-import "./Produtos.css"
+import "./Produtos.css";
 import fetchProducts from "../../api/fetchProducts";
 import CardProdutos from "../CardProduto/CardProduto";
 import Loading from "../Loading/Loading";
 import AppContext from "../../context/AppContext";
 
 function Produtos() {
-
-    const {products, setProducts, loading, setLoading} = useContext(AppContext)
-
+    const { products, setProducts, loading, setLoading } = useContext(AppContext);
+    
     useEffect(() => {
-
         fetchProducts("computador").then((response) => {
-            setProducts(response)
-            setLoading(false)
-        })
-    }, [])
+            console.log("Produtos carregados:", response);  // Verifique os dados aqui
+            setProducts(response);
+            setLoading(false);
+        });
+    }, [setProducts, setLoading]);
+     // Certifique-se de que essas funções estão no array de dependências
 
     return (
-
-        (loading ? <Loading /> : <section className="produtos container">
-
-
+        loading ? <Loading /> : 
+        <section className="produtos container">
             {
-                products.map((products) => <CardProdutos key={products.id} data={products} />)
+                products.map((produto) => <CardProdutos key={produto.id} data={produto} />)
             }
-        </section>)
-
-    )
-
+        </section>
+    );
 }
 
-export default Produtos
+export default Produtos;
